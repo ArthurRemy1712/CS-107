@@ -5,7 +5,7 @@ public class Velo {
 
     public static void main(String[] args) {
         Scanner clavier = new Scanner(System.in);
-        System.out.print("Donnez l'heure de dÃ©but de la location (un entier) : ");
+        System.out.print("Donnez l'heure de début de la location (un entier) : ");
         int debut = clavier.nextInt();
         System.out.print("Donnez l'heure de fin de la location (un entier) : ");
         int fin = clavier.nextInt();
@@ -15,13 +15,13 @@ public class Velo {
          *******************************************/
         
         if ( debut < 0 || fin < 0 || debut > 24 || fin > 24){
-            System.out.println("Les heures doivent Ãªtre comprises entre 0 et 24 !");
+            System.out.println("Les heures doivent être comprises entre 0 et 24 !");
         } else {
             if ( debut == fin){
-             System.out.println("Bizarre, vous n'avez pas louÃ© votre vÃ©lo bien longtemps !");
+             System.out.println("Bizarre, vous n'avez pas loué votre vélo bien longtemps !");
             } else {
                 if ( fin < debut){
-                    System.out.println("Bizarre, le dÃ©but de la location est aprÃ¨s la fin ...");
+                    System.out.println("Bizarre, le début de la location est après la fin ...");
                 } else {
 
                     int duree = fin - debut;
