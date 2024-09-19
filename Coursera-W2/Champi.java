@@ -1,18 +1,61 @@
+import java.util.Scanner;
 
-System.out.println("Pensez a un champignon : amanite tue mouches, pied bleu, girolle,");
-System.out.println("cÃ¨pe de Bordeaux, coprin chevelu ou agaric jaunissant.");
+class Champi{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
 
-System.out.print("Est-ce que votre champignon a des lamelles (true : oui, false : non) ? ");
-System.out.print("Est-ce que votre champignon a un anneau (true : oui, false : non) ? ");
-System.out.print("Est-ce que votre champignon a un chapeau convexe (true : oui, false : non) ? ");
-System.out.print("Est-ce que votre champignon vit en forÃªt (true : oui, false : non) ? ");
+                
+        System.out.print("Est-ce que votre champignon a un anneau (true : oui, false : non) ? ");
+        boolean anneau = scanner.nextBoolean();
+        if (anneau) {
+            System.out.print("Est-ce que votre champignon vit en forêt (true : oui, false : non) ? ");
+            boolean foret = scanner.nextBoolean();
+            if (foret) {
+                System.out.print("==> Le champignon auquel vous pensez est ");
+                System.out.print("l'amanite tue-mouches");
+            } else {
+                System.out.print("Est-ce que votre champignon a un chapeau convexe (true : oui, false : non) ? ");
+                boolean chapeau = scanner.nextBoolean();
+                if (chapeau) {
+                    System.out.print("==> Le champignon auquel vous pensez est ");
+                    System.out.print("l'agaric jaunissant");
+                } else {
+                    System.out.print("==> Le champignon auquel vous pensez est ");
+                    System.out.print("le coprin chevelu");
+                }
+            }
+        } else {
+            System.out.print("Est-ce que votre champignon a un chapeau convexe (true : oui, false : non) ? ");
+            boolean chapeau = scanner.nextBoolean();
+            if (chapeau) {
+                System.out.print("==> Le champignon auquel vous pensez est ");
+                System.out.print("le pied bleu");
+            } else {
+                System.out.print("Est-ce que votre champignon a des lamelles (true : oui, false : non) ? ");
+                boolean lamelles = scanner.nextBoolean();
+                if (lamelles) {
+                    System.out.print("==> Le champignon auquel vous pensez est ");
+                    System.out.print("la girolle");
+                } else {
+                    System.out.print("==> Le champignon auquel vous pensez est ");
+                    System.out.print("le cèpe de Bordeaux");
+                }
+            }
+        }
+    }
+}
 
-System.out.print("==> Le champignon auquel vous pensez est ");
 
-System.out.print("l'agaric jaunissant");
-System.out.print("l'amanite tue-mouches");
-System.out.print("le cÃ¨pe de Bordeaux");
-System.out.print("le coprin chevelu");
-System.out.print("la girolle");
-System.out.print("le pied bleu");
+
+
+
+
+
+
+            
+
+
+                
+                
+  
 
