@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Velo {
@@ -47,7 +46,7 @@ public class Velo {
                     };
                     
                     double prix = dureeTarif1 + dureeTarif2 * 2 ;
-                    System.out.println("Le montant total à payer est de " + prix + " franc(s)");   
+                    System.out.println("Le montant total à payer est de " + prix + " franc(s).");   
                 }
             }
         }
