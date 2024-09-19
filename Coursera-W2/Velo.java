@@ -27,19 +27,23 @@ public class Velo {
                     int duree = fin - debut;
                     int dureeTarif1 = 0;
 
-                    if ((7 - debut) > 0){
+                    if (debut < 7 && fin > 7){
                         dureeTarif1 += 7 - debut ;
-                    } if ((fin - 17) > 0){
-                        dureeTarif1 += fin - 17 ;
+                    } else if (debut < 7){
+                        dureeTarif1 += fin - debut;
+                    } if (fin > 17 && debut < 17 ){
+                        dureeTarif1 += fin - 17;
+                    } else if (fin > 17){
+                        dureeTarif1 += fin - debut;
                     };
                     
                     int dureeTarif2 = duree - dureeTarif1;
 
                     System.out.println("Vous avez loué votre vélo pendant");
                     if (dureeTarif1 > 0){
-                        System.out.println(dureeTarif1 + "heure(s) au tarif horaire de 1.0 franc(s)");
+                        System.out.println(dureeTarif1 + " heure(s) au tarif horaire de 1.0 franc(s)");
                     } if (dureeTarif2 > 0){
-                        System.out.println(dureeTarif2 + "heure(s) au tarif horaire de 2.0 franc(s)");
+                        System.out.println(dureeTarif2 + " heure(s) au tarif horaire de 2.0 franc(s)");
                     };
                     
                     double prix = dureeTarif1 + dureeTarif2 * 2 ;
