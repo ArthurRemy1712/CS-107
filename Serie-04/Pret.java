@@ -25,7 +25,7 @@ public class Pret {
             };
             System.out.println("Montant total des interêts = " + sigmaInterest + " euros.");
         } else {
-            System.out.println("Mauvais paramètres");
+            System.out.println("Mauvais paramètres !");
         }
     }
 }
