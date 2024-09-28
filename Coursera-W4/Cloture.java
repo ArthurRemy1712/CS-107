@@ -183,51 +183,26 @@ class Cloture {
                 }
             }
         }
+/*
         for (int i = 0; i < carte.length; i++) {
             System.out.print("\n");
             for (int j = 0; j < carte[i].length; j++) {
                 System.out.print(carte[i][j] + " ");
             }
         }
-
+*/
         ArrayList<Integer> zoneIds = new ArrayList<Integer>();
 
         for (int i = 0; i < carte.length; i++) {
-            if (zoneIds.isEmpty()) {
-                zoneIds.add(carte[i][0]);
-            }
-            for (int j = 0; j <= zoneIds.size(); j++) {
-                if (j == zoneIds.size()) {
-                    zoneIds.add(carte[i][0]);
-                }else if (carte[i][0] == zoneIds.get(j)) {
-                    break;
-                }
-            }
-            for (int j = 0; j <= zoneIds.size(); j++) {
-                if (j == zoneIds.size()) {
-                    zoneIds.add(carte[i][carte[i].length - 1]);
-                }else if (carte[i][carte[i].length - 1] == zoneIds.get(j)) {
-                    break;
-                }
-            }
+            zoneIds.add(carte[i][0]);
+            zoneIds.add(carte[i][carte[i].length - 1]);
         }
         for (int i = 0; i < carte[0].length; i++) {
-            for (int j = 0; j <= zoneIds.size(); j++) {
-                if (j == zoneIds.size()) {
-                    zoneIds.add(carte[0][i]);
-                }else if (carte[0][i] == zoneIds.get(j)) {
-                    break;
-                }
-            }
-            for (int j = 0; j <= zoneIds.size(); j++) {
-                if (j == zoneIds.size()) {
-                    zoneIds.add(carte[0][carte.length - 1]);
-                }else if (carte[0][carte.length - 1] == zoneIds.get(j)) {
-                    break;
-                }
-            }
+            zoneIds.add(carte[0][i]);
+            zoneIds.add(carte[carte.length - 1][i]);
         }
-        System.out.println("test");
+        
+
         for (int i = 0; i < carte.length; i++) {
             for (int j = 0; j < carte[i].length; j++) {
                 if (carte[i][j] != 1) {
@@ -254,6 +229,7 @@ class Cloture {
                                 System.out.print("][");
                                 System.out.print(j);
                                 System.out.println("]");
+                                return;
                             }
                         }
                     }
@@ -284,46 +260,109 @@ class Cloture {
                 }
             }
         }
+/*
         for (int i = 0; i < carte.length; i++) {
             System.out.print("\n");
             for (int j = 0; j < carte[i].length; j++) {
                 System.out.print(carte[i][j] + " ");
             }
         }
-
+*/
         int nCloture = 0;
 
         for (int i = 0; i < carte.length; i++) {
             for (int j = 0; j < carte[i].length; j++) {
                 if (carte[i][j] == 1) {
-                    if (i == 0 || i == carte.length - 1) {
-                        nCloture += 1;
+                    if (i == 0 && j == 0 && i == carte.length - 1 && j == carte[i].length - 1) {
+                        nCloture += 4;
+                    } else if ( i == 0 && j == 0) {
+                        nCloture += 2;
                         if (carte[i][j+1] != 1) {
-                            nCloture += 1;
-                        }
-                        if (carte[i][j-1] != 1) {
-                            nCloture += 1;
-                        }
-                    } else if (j == 0 || j == carte[i].length - 1) {
-                        nCloture += 1;
-                        if (carte[i-1][j] != 1) {
-                            nCloture += 1;
+                             nCloture ++;
                         }
                         if (carte[i+1][j] != 1) {
-                            nCloture += 1;
+                            nCloture ++;
+                        }
+                    } else if (i == 0 && j == carte[i].length - 1) {
+                        nCloture += 2;
+                        if (carte[i][j - 1] != 1) {
+                            nCloture ++;
+                        }
+                        if (carte[i+1][j] != 1) {
+                            nCloture ++;
+                        }
+                    } else if (i == carte.length - 1 && j == 0) {
+                        nCloture += 2;
+                        if (carte[i][j+1] != 1) {
+                            nCloture ++;
+                        }
+                        if (carte[i-1][j] != 1) {
+                            nCloture ++;
+                        }
+                    } else if (i == carte.length - 1 && j == carte[i].length - 1) {
+                        nCloture += 2;
+                        if (carte[i][j-1] != 1) {
+                            nCloture ++;
+                        }
+                        if (carte[i-1][j] != 1) {
+                            nCloture ++;
+                        }
+                    } else if (i == 0) {
+                         nCloture ++;
+                        if (carte[i][j+1] != 1) {
+                             nCloture ++;
+                        }
+                        if (carte[i][j-1] != 1) {
+                            nCloture ++;
+                        }
+                        if (carte[i+1][j] != 1) {
+                            nCloture ++;
+                        }
+                    } else if (i == carte.length - 1) {
+                         nCloture ++;
+                        if (carte[i][j+1] != 1) {
+                             nCloture ++;
+                        }
+                        if (carte[i][j-1] != 1) {
+                            nCloture ++;
+                        }
+                        if (carte[i-1][j] != 1) {
+                            nCloture ++;
+                        }
+                    } else if (j == 0) {
+                         nCloture ++;
+                        if (carte[i-1][j] != 1) {
+                             nCloture ++;
+                        }
+                        if (carte[i+1][j] != 1) {
+                             nCloture ++;
+                        }
+                        if (carte[i][j+1] != 1) {
+                            nCloture ++;
+                        }
+                    } else if (j == carte[i].length - 1) {
+                         nCloture ++;
+                        if (carte[i-1][j] != 1) {
+                             nCloture ++;
+                        }
+                        if (carte[i+1][j] != 1) {
+                             nCloture ++;
+                        }
+                        if (carte[i][j-1] != 1) {
+                            nCloture ++;
                         }
                     } else {
                         if (carte[i-1][j] != 1) {
-                            nCloture += 1;
+                             nCloture ++;
                         }
                         if (carte[i+1][j] != 1) {
-                            nCloture += 1;
+                             nCloture ++;
                         }
                         if (carte[i][j+1] != 1) {
-                            nCloture += 1;
+                             nCloture ++;
                         }
                         if (carte[i][j-1] != 1) {
-                            nCloture += 1;
+                             nCloture ++;
                         }
                     }
                 }
@@ -332,17 +371,7 @@ class Cloture {
         System.out.print("Il vous faut ");
         System.out.print(nCloture * 2.5);
         System.out.println(" mètres de clôture pour votre terrain.");
-                    
-       
 
-
-
-
-
-
-
-
-      
         /*******************************************
          * Ne rien modifier aprÃ¨s cette ligne.
          *******************************************/
